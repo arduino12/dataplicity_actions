@@ -12,7 +12,7 @@ case $1 in
         ;;
 	video)
 		set_status "taking video..."
-		IFS=x read w h < "$VIDEO_SIZE_PATH"
+		IFS=x read w h <<< "$(get_global $VIDEO_SIZE_PATH 640x480)"
 		raspivid -w "$w" -h "$h" -t "$((1000 * $(get_global $VIDEO_LENGTH_PATH 5)))" -o "$VIDEO_PATH"
 		# MP4Box -add "$VIDEO_PATH" /tmp/camera_video.mp4
 		UPLOAD_PATH="$VIDEO_PATH"
