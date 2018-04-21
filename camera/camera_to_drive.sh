@@ -24,6 +24,6 @@ case $1 in
 esac
 
 set_status "uploading to google..."
-google_drive upload --no-progress --delete -p "$FOLDER_ID" "$UPLOAD_PATH"
+gdrive upload --no-progress --delete -p "$FOLDER_ID" "$UPLOAD_PATH"
 
 set_status "done!"
